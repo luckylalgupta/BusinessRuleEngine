@@ -1,6 +1,7 @@
 package com.rule.engine.business.domain;
 
 
+import com.rule.engine.business.paymentHandler.PaymentHandler;
 
 public class Payment {
     private final Order _order;

@@ -8,13 +8,13 @@ public class Order {
     private final Agent _agent;
     private HashSet<String> _giftSkus;
 
-    public Order(final Customer _customer,final LineItem[] lineItems,final Agent _agent) throws IllegalArgumentException {
+    public Order(final Customer customer,final LineItem[] lineItems,final Agent agent) throws IllegalArgumentException {
         if(lineItems == null || lineItems.length==0){
             throw new IllegalArgumentException("line Items are required");
         }
-        this._customer = _customer;
+        this._customer = customer;
         this._lineItems = lineItems;
-        this._agent = _agent;
+        this._agent = agent;
         this._giftSkus = new HashSet<String>();
     }
 
@@ -30,11 +30,11 @@ public class Order {
         return _agent;
     }
     public void addGiftBySku(String sku){
-        if(!_giftSkus.contains(sku)){
-            _giftSkus.add(sku);
+        if(!this._giftSkus.contains(sku)){
+            this._giftSkus.add(sku);
         }
     }
     public String[] getGiftSkus(){
-        return _giftSkus.toArray(new String[0]);
+        return this._giftSkus.toArray(new String[0]);
     }
 }
